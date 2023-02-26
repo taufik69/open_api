@@ -1,38 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Indexlogres.css";
 const Index = () => {
+  const [addclass, setaddclass] = useState("");
+  console.log("add class is :", addclass);
   return (
     <>
-      <div className="container">
-        <div className="from_container sign_in_container">
+      <div className={`container ${addclass}`} id="container">
+        <div className="form-container  sign-up-container">
           <form>
-            <h2>Create an acooutn</h2>
-            <input type="text" placeholder="Name" />
-            <input type="text" placeholder="Email" />
-            <input type="password" placeholder="password" />
-            <button>sign up</button>
+            <h1>Create an Account</h1>
+            <input type="text" placeholder="NAME" />
+            <input type="email" placeholder="EMAIL" />
+            <input type="password" placeholder="PASSWORD" />
+            <button type="submit">REGISTER</button>
           </form>
         </div>
-
-        <div className="from_container sign_up_container">
+        <div className="form-container sign-in-container">
           <form>
-            <h2>Login</h2>
-            <input type="text" placeholder="Email" />
-            <input type="password" placeholder="password" />
-            <button>sign in</button>
+            <h1>Login</h1>
+            <input type="email" placeholder="EMAIL" />
+            <input type="password" placeholder="PASSWORD" />
+            <button type="submit">LOGIN</button>
           </form>
         </div>
-
-        <div className="overlay_container">
+        <div className="overlay-container">
           <div className="overlay">
-            <div className="overlay_panel  overlay_left">
-              <button className="ghost" id="sing_in">
-                Go to sign up
+            <div className="overlay-panel overlay-left">
+              <button
+                className="ghost"
+                id="signIn"
+                onClick={() => setaddclass("")}
+              >
+                GO TO LOGIN
               </button>
             </div>
-            <div className="overlay_panel ovelay_right">
-              <button className="ghost" id="sing_in">
-                Go to sign up
+            <div className="overlay-panel overlay-right">
+              <button
+                className="ghost"
+                id="signUp"
+                onClick={() => setaddclass("right-panel-active")}
+              >
+                GO TO REGISTER
               </button>
             </div>
           </div>
