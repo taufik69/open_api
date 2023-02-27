@@ -1,9 +1,13 @@
 import Index from "./Component/Loing_registration/Index";
+import ParticleBackground from "./Component/Loing_registration/backgroundpartcle/ParticleBackground";
 function App() {
   return (
-    <div className="App">
-      <Index />
-    </div>
+    <>
+      <ParticleBackground />
+      <div className="App">
+        <Index />
+      </div>
+    </>
   );
 }
 

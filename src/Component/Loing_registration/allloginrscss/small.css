@@ -1,0 +1,30 @@
+@media only screen and (max-width: 690px) {
+  h1 {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 8px 25px;
+  }
+
+  form {
+    padding: 0 25px;
+  }
+
+  .container {
+    margin-top: 7%;
+    width: 580px;
+    min-height: 17rem;
+  }
+
+  .overlay-panel {
+    padding: 0px 10px; /* this line eligible for this device*/
+  }
+}

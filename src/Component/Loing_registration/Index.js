@@ -1,26 +1,79 @@
 import React, { useState } from "react";
-import "./Indexlogres.css";
+import Input from "./Input";
+import { useFormik } from "formik";
+import "./allloginrscss/Indexlogres.css";
+import "./allloginrscss/bigdeviceResponsive.css";
+import "./allloginrscss/medium.css";
+import "./allloginrscss/small.css";
+import "./allloginrscss/extraSmall.css";
+
 const Index = () => {
   const [addclass, setaddclass] = useState("");
-  console.log("add class is :", addclass);
+  const initialValues = {
+    username: "",
+    email: "",
+    password: "",
+    confrim: "",
+  };
+  const formik = useFormik({
+    initialValues: initialValues,
+    onSubmit: (values) => {
+      console.log("input vlaues is : ", values);
+    },
+  });
+
   return (
     <>
       <div className={`container ${addclass}`} id="container">
         <div className="form-container  sign-up-container">
-          <form>
+          <form onSubmit={formik.handleSubmit}>
             <h1>Create an Account</h1>
-            <input type="text" placeholder="NAME" />
-            <input type="email" placeholder="EMAIL" />
-            <input type="password" placeholder="PASSWORD" />
-            <button type="submit">REGISTER</button>
+            <Input
+              id="username"
+              name="username"
+              type="text"
+              placeholder="UserName"
+              onChange={formik.handleChange}
+              value={formik.values.username}
+            />
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Example@gmail.com"
+              onChange={formik.handleChange}
+              value={formik.values.email}
+            />
+            <Input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Password"
+              onChange={formik.handleChange}
+              value={formik.values.password}
+            />
+            <Input
+              id="confrim"
+              name="confrim"
+              type="password"
+              placeholder="confrim Password"
+              onChange={formik.handleChange}
+              value={formik.values.confrim}
+            />
+
+            <button type="submit" className="normal_btn">
+              REGISTER
+            </button>
           </form>
         </div>
         <div className="form-container sign-in-container">
           <form>
             <h1>Login</h1>
-            <input type="email" placeholder="EMAIL" />
-            <input type="password" placeholder="PASSWORD" />
-            <button type="submit">LOGIN</button>
+            <Input type="email" placeholder="Username or Email" />
+            <Input type="password" placeholder="Password" />
+            <button type="submit" className="normal_btn">
+              LOGIN
+            </button>
           </form>
         </div>
         <div className="overlay-container">
@@ -28,7 +81,7 @@ const Index = () => {
             <div className="overlay-panel overlay-left">
               <button
                 className="ghost"
-                id="signIn"
+                id="ghost"
                 onClick={() => setaddclass("")}
               >
                 GO TO LOGIN
@@ -37,7 +90,7 @@ const Index = () => {
             <div className="overlay-panel overlay-right">
               <button
                 className="ghost"
-                id="signUp"
+                id="ghost"
                 onClick={() => setaddclass("right-panel-active")}
               >
                 GO TO REGISTER
