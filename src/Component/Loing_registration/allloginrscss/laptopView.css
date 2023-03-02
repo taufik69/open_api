@@ -1,0 +1,13 @@
+@media only screen and (max-width: 1700px) {
+
+  
+    .container {
+      margin-top: 7%;
+      width: 1300px;
+      min-height: 33rem;
+    }
+  
+    .overlay-panel {
+      padding: 0px 10px; /* this line eligible for this device*/
+    }
+  }

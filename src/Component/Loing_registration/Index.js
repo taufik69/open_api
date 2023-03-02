@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Input from "./Input";
 import { useFormik } from "formik";
 import "./allloginrscss/Indexlogres.css";
+import "./allloginrscss/laptopView.css";
 import "./allloginrscss/bigdeviceResponsive.css";
 import "./allloginrscss/medium.css";
 import "./allloginrscss/small.css";
