@@ -57,18 +57,19 @@ const ParticleBackground = () => {
               width: 1,
             },
             collisions: {
-              enable: true,
+              enable: false,
             },
             move: {
               directions: "",
               enable: true,
               outModes: {
                 destroy: "destroy",
-                default: "bounce",
+
+                // default: "bounce",
                 split: "split",
               },
-              random: false,
-              speed: 1,
+              random: true,
+              speed: 4,
               straight: false,
             },
             number: {

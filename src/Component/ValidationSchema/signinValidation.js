@@ -3,11 +3,7 @@ let mailFormat = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
 let passwordFormat =
   /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/;
 
-export let Signupvalidation = Yup.object({
-  username: Yup.string()
-    .min(5, "Must be 5 character or higher")
-    .max(20, "Must be 15 chracter or higher")
-    .required("Please Enter your User Name"),
+export let Signinvalidation = Yup.object({
   email: Yup.string()
     .email()
     .matches(mailFormat, "invalid email adress")
@@ -20,7 +16,4 @@ export let Signupvalidation = Yup.object({
       "Password  contain at least 8 characters,  uppercase,  number  one special character"
     )
     .required("Password must required"),
-  confrim: Yup.string()
-    .required("Please re-type your password")
-    .oneOf([Yup.ref("password")], "Passwords does not match"),
 });

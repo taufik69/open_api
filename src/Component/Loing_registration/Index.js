@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Input from "./Input";
 import { useFormik } from "formik";
 import { Signupvalidation } from "../ValidationSchema/signupValidation";
+import Login from "../MainComponent/Login";
 import "./allloginrscss/Indexlogres.css";
 import "./allloginrscss/bigdeviceResponsive.css";
 import "./allloginrscss/medium.css";
@@ -33,25 +34,27 @@ const Index = () => {
             <Input
               id="username"
               name="username"
-              className="bg-red-600"
+              className=""
               type="text"
               placeholder="UserName"
               onChange={formik.handleChange}
               value={formik.values.username}
             />
             {formik.errors.username && formik.touched.username ? (
-              <p className="mb-10 text-sm bg-red">{formik.errors.username}</p>
+              <p className=" -ml-[3%] text-sm text-red-700">
+                {formik.errors.username}
+              </p>
             ) : null}
             <Input
               id="email"
               name="email"
               type="email"
-              placeholder="Example@gmail.com"
+              placeholder="example@gmail.com"
               onChange={formik.handleChange}
               value={formik.values.email}
             />
             {formik.errors.email && formik.touched.email ? (
-              <p className="mb-1 text-sm text-error_color">
+              <p className="-ml-[3%] text-sm text-red-700">
                 {formik.errors.email}
               </p>
             ) : null}
@@ -64,7 +67,7 @@ const Index = () => {
               value={formik.values.password}
             />
             {formik.errors.password && formik.touched.password ? (
-              <p className="mb-1 text-sm text-error_color">
+              <p className="-ml-[1%] text-sm text-red-700">
                 {formik.errors.password}
               </p>
             ) : null}
@@ -77,7 +80,7 @@ const Index = () => {
               value={formik.values.confrim}
             />
             {formik.errors.confrim && formik.touched.confrim ? (
-              <p className="mb-1 text-sm text-error_color">
+              <p className="-ml-[2%] text-sm text-red-700">
                 {formik.errors.confrim}
               </p>
             ) : null}
@@ -88,14 +91,7 @@ const Index = () => {
           </form>
         </div>
         <div className="form-container sign-in-container">
-          <form>
-            <h1>Login</h1>
-            <Input type="email" placeholder="Username or Email" />
-            <Input type="password" placeholder="Password" />
-            <button type="submit" className="normal_btn">
-              LOGIN
-            </button>
-          </form>
+          <Login />
         </div>
         <div className="overlay-container">
           <div className="overlay">

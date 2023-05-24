@@ -17,9 +17,10 @@ body {
 
 h1 {
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-family: var(--popins);
   color: #202224;
+  font-size: 25px;
 }
 
 #ghost {
@@ -44,13 +45,14 @@ form {
 }
 
 input {
-  background-color: #eee;
+  background-color: #ffffff;
   border: none;
   padding: 15px 15px;
-  margin: 14px 0;
+  margin: 24px 0;
   width: 100%;
   outline: none;
   margin-left: 10px;
+  border: 1px solid #536585;
 }
 input::placeholder {
   font-family: var(--popins);
@@ -59,7 +61,7 @@ input::placeholder {
   font-weight: 400;
 }
 .normal_btn {
-  margin-top: 25px;
+  margin-top: 35px;
   border-radius: 20px;
   border: 1px solid #2f4c73;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25), 0 5px 10px rgba(0, 0, 0, 0.22);
@@ -71,6 +73,7 @@ input::placeholder {
   text-transform: uppercase;
   transition: transform 80ms ease-in;
   background: linear-gradient(to right, #2f4c73, #202224);
+  cursor: pointer;
 }
 
 button:active {
