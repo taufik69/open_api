@@ -8,7 +8,7 @@ const ParticleBackground = () => {
   }, []);
 
   const particlesLoaded = useCallback(async (container) => {
-    await console.log(container);
+    // await console.log(container);
   }, []);
   return (
     <>
@@ -63,8 +63,8 @@ const ParticleBackground = () => {
               directions: "",
               enable: true,
               outModes: {
-                // destroy: "destroy",
-                // default: "bounce",
+                destroy: "destroy",
+                default: "bounce",
                 split: "split",
               },
               random: false,

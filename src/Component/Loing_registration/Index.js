@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Input from "./Input";
 import { useFormik } from "formik";
+import { Signupvalidation } from "../ValidationSchema/signupValidation";
 import "./allloginrscss/Indexlogres.css";
 import "./allloginrscss/bigdeviceResponsive.css";
 import "./allloginrscss/medium.css";
@@ -17,7 +18,8 @@ const Index = () => {
   };
   const formik = useFormik({
     initialValues: initialValues,
-    onSubmit: (values) => {
+    validationSchema: Signupvalidation,
+    onSubmit: async (values) => {
       console.log("input vlaues is : ", values);
     },
   });
@@ -31,11 +33,15 @@ const Index = () => {
             <Input
               id="username"
               name="username"
+              className="bg-red-600"
               type="text"
               placeholder="UserName"
               onChange={formik.handleChange}
               value={formik.values.username}
             />
+            {formik.errors.username && formik.touched.username ? (
+              <p className="mb-10 text-sm bg-red">{formik.errors.username}</p>
+            ) : null}
             <Input
               id="email"
               name="email"
@@ -44,14 +50,24 @@ const Index = () => {
               onChange={formik.handleChange}
               value={formik.values.email}
             />
+            {formik.errors.email && formik.touched.email ? (
+              <p className="mb-1 text-sm text-error_color">
+                {formik.errors.email}
+              </p>
+            ) : null}
             <Input
               id="password"
               name="password"
               type="password"
-              placeholder="Password"
+              placeholder="password"
               onChange={formik.handleChange}
               value={formik.values.password}
             />
+            {formik.errors.password && formik.touched.password ? (
+              <p className="mb-1 text-sm text-error_color">
+                {formik.errors.password}
+              </p>
+            ) : null}
             <Input
               id="confrim"
               name="confrim"
@@ -60,6 +76,11 @@ const Index = () => {
               onChange={formik.handleChange}
               value={formik.values.confrim}
             />
+            {formik.errors.confrim && formik.touched.confrim ? (
+              <p className="mb-1 text-sm text-error_color">
+                {formik.errors.confrim}
+              </p>
+            ) : null}
 
             <button type="submit" className="normal_btn">
               REGISTER
