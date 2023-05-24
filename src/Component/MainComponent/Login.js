@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import Input from "../Loing_registration/Input";
 import { Signinvalidation } from "../ValidationSchema/signinValidation";
 import { FiEye } from "react-icons/fi";
+import { HiOutlineEyeOff } from "react-icons/hi";
 const Login = () => {
+  const [eye, seteye] = useState(true);
   const initialValues = {
     email: "",
     password: "",
@@ -36,12 +38,24 @@ const Login = () => {
         <Input
           id="password"
           name="password"
-          className=""
-          type="password"
+          className="relative"
+          type={eye ? "password" : "text"}
           placeholder="password"
           onChange={formik.handleChange}
           value={formik.values.password}
         />
+        {eye ? (
+          <FiEye
+            className="absolute right-[10%] top-[59%] text-[20px] cursor-pointer"
+            onClick={() => seteye(!eye)}
+          />
+        ) : (
+          <HiOutlineEyeOff
+            className="absolute right-[10%] top-[59%] text-[20px] cursor-pointer"
+            onClick={() => seteye(!eye)}
+          />
+        )}
+
         {formik.errors.password && formik.touched.password ? (
           <p className=" -ml-[3%] text-sm text-red-700">
             {formik.errors.password}
