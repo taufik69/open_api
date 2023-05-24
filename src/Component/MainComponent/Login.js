@@ -4,6 +4,7 @@ import Input from "../Loing_registration/Input";
 import { Signinvalidation } from "../ValidationSchema/signinValidation";
 import { FiEye } from "react-icons/fi";
 import { HiOutlineEyeOff } from "react-icons/hi";
+
 const Login = () => {
   const [eye, seteye] = useState(true);
   const initialValues = {
@@ -19,7 +20,10 @@ const Login = () => {
   });
   return (
     <div>
-      <form onSubmit={formik.handleSubmit} className=" w-[100%] min-h-screen">
+      <form
+        onSubmit={formik.handleSubmit}
+        className=" w-[100%] min-h-screen 2xl:pb-52"
+      >
         <h1>Login</h1>
         <Input
           id="email"
@@ -46,12 +50,12 @@ const Login = () => {
         />
         {eye ? (
           <FiEye
-            className="absolute right-[10%] top-[59%] text-[20px] cursor-pointer"
+            className="absolute right-[10%] top-[61%] text-[20px] cursor-pointer"
             onClick={() => seteye(!eye)}
           />
         ) : (
           <HiOutlineEyeOff
-            className="absolute right-[10%] top-[59%] text-[20px] cursor-pointer"
+            className="absolute right-[10%] top-[61%] text-[20px] cursor-pointer"
             onClick={() => seteye(!eye)}
           />
         )}
